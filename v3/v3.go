@@ -6,9 +6,9 @@ import (
 	"net/url"
 	"strings"
 
-	format "github.com/superoo7/go-gecko/format"
-	request "github.com/superoo7/go-gecko/request"
-	types "github.com/superoo7/go-gecko/v3/types"
+	format "github.com/vladivolo/go-gecko/format"
+	request "github.com/vladivolo/go-gecko/request"
+	types "github.com/vladivolo/go-gecko/v3/types"
 )
 
 var baseURL = "https://api.coingecko.com/api/v3"
@@ -305,3 +305,6 @@ func Global() (*types.Global, error) {
 	}
 	return &data.Data, nil
 }
+
+//Пн апр 29 15:25:49 MSK 2019
+//Пн апр 29 15:26:51 MSK 2019
