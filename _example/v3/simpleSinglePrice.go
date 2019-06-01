@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	price, err := gecko.SimpleSinglePrice("bitcoin", "usd")
+	price, err := gecko.SimpleSinglePrice("gbr", "usd")
 	if err != nil {
 		log.Fatal(err)
 	}

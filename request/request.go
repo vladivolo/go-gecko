@@ -3,14 +3,27 @@ package request
 import (
 	"fmt"
 	"io/ioutil"
+	"net"
 	"net/http"
 	"strconv"
+	"time"
 )
+
+func dialTimeout(network, addr string) (net.Conn, error) {
+	return net.DialTimeout(network, addr, time.Duration(1*time.Minute))
+}
 
 // helper
 // doReq HTTP client
 func doReq(req *http.Request) ([]byte, error) {
-	client := &http.Client{}
+	transport := http.Transport{
+		Dial: dialTimeout,
+	}
+
+	client := http.Client{
+		Transport: &transport,
+	}
+
 	resp, err := client.Do(req)
 	if err != nil {
 		return nil, err
